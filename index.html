@@ -575,12 +575,14 @@
                                             data-buttonfieldset="button">
                                             Написать мне в Telegram
                                         </a></div>
-                                    <div class="t228__right_buttons_but"><a href="" target="_blank"
-                                            class="t-btn t-btn_md "
-                                            style="border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;font-weight:600;text-transform:uppercase;"
-                                            data-buttonfieldset="button2">
-                                            +79117879530
-                                        </a></div>
+                                    <div class="t228__right_buttons_but cv-language-switcher" role="group"
+                                        aria-label="Выбор языка">
+                                        <button type="button" class="cv-language-switcher__button"
+                                            data-cv-language="ru" aria-pressed="true">RU</button>
+                                        <span class="cv-language-switcher__divider" aria-hidden="true">/</span>
+                                        <button type="button" class="cv-language-switcher__button"
+                                            data-cv-language="en" aria-pressed="false">EN</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -693,7 +695,8 @@
                                         field="text"><strong>Рад приветствовать Вас на моём
                                             сайте-визитке!</strong><br /><strong>Расскажу немного о себе:</strong><br />
                                         <ul>
-                                            <li data-list="bullet">Мне <strong>25 лет</strong>, проживаю в <strong>Санкт-Петербурге</strong>.</li>
+                                            <li data-list="bullet">Мне <strong>25 лет</strong>, проживаю в
+                                                <strong>Санкт-Петербурге</strong>.</li>
                                             <li data-list="bullet">Являюсь <strong>дипломированным юристом</strong>.
                                             </li>
                                             <li data-list="bullet">Имею Диплом о <strong>проф. переподготовке в
@@ -4075,7 +4078,263 @@
                     }
                 </style>
             </div>
-        </div> <!--/allrecords--> <!-- Stat -->
+        </div> <!--/allrecords-->
+        <style>
+            #rec927688621 .cv-language-switcher {
+                align-items: center;
+                display: inline-flex;
+                gap: 6px;
+                margin-left: 14px;
+                min-height: 40px;
+                white-space: nowrap;
+            }
+
+            #rec927688621 .cv-language-switcher__button {
+                background: transparent;
+                border: 0;
+                color: #1040e0;
+                cursor: pointer;
+                font: inherit;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 1;
+                opacity: .45;
+                padding: 8px 1px;
+                transition: opacity .2s ease, transform .2s ease;
+            }
+
+            #rec927688621 .cv-language-switcher__button:hover,
+            #rec927688621 .cv-language-switcher__button:focus-visible {
+                opacity: .8;
+                outline: none;
+                transform: translateY(-1px);
+            }
+
+            #rec927688621 .cv-language-switcher__button[aria-pressed="true"] { opacity: 1; }
+            #rec927688621 .cv-language-switcher__divider { color: #1040e0; opacity: .45; }
+
+            @media screen and (min-width:981px) {
+                #rec927688621 .t228__maincontainer.t228__c12collumns {
+                    align-items: center;
+                    display: flex;
+                }
+
+                #rec927688621 .t228__padding40px,
+                #rec927688621 .t228__leftside { display: none; }
+
+                #rec927688621 .t228__centerside {
+                    display: block;
+                    flex: 1 1 auto;
+                    width: auto;
+                }
+
+                #rec927688621 .t228__rightside {
+                    display: block;
+                    flex: 0 0 460px;
+                }
+
+                #rec927688621 .t228__rightcontainer,
+                #rec927688621 .t228__right_buttons {
+                    display: block;
+                    float: none;
+                    padding-left: 0;
+                    width: 100%;
+                }
+
+                #rec927688621 .t228__right_buttons_wrap {
+                    align-items: center;
+                    display: flex;
+                    float: none;
+                    justify-content: space-between;
+                    width: 100%;
+                }
+
+                #rec927688621 .t228__right_buttons_but { display: flex; }
+
+                #rec927688621 .t228__right_buttons_but .t-btn {
+                    margin-left: 0;
+                    padding-left: 0;
+                    padding-right: 0;
+                    width: 300px;
+                }
+
+                #rec927688621 .cv-language-switcher {
+                    border: 1px solid rgba(16, 64, 224, .28);
+                    border-radius: 5px;
+                    justify-content: center;
+                    margin-left: 0;
+                    min-width: 88px;
+                }
+            }
+
+            #rec930777001 .ag-results__item:nth-child(9) .ag-results__value {
+                font-size: 38px;
+                letter-spacing: -.5px;
+                white-space: nowrap;
+            }
+
+            @media screen and (max-width:980px) {
+                #rec927688621 .cv-language-switcher { margin-left: 8px; }
+            }
+
+            @media screen and (min-width:981px) and (max-width:1200px) {
+                #rec927688621 .t228__rightside { flex-basis: 420px; }
+                #rec927688621 .t228__right_buttons_but .t-btn { width: 276px; }
+            }
+
+            @media screen and (max-width:640px) {
+                #rec930777001 .ag-results__item:nth-child(9) .ag-results__value {
+                    font-size: 28px;
+                    letter-spacing: -.3px;
+                }
+            }
+        </style>
+        <script>
+            (function () {
+                'use strict';
+
+                var ruContent = new WeakMap();
+                var activeLanguage = 'ru';
+                var translations = [
+                    ['#rec930293921 [field="title"]', 'Artyom Vavilov'],
+                    ['#rec930293921 [field="descr"]', '<strong><em>Project Manager, Lawyer</em></strong><br><br>'],
+                    ['#rec930293921 [field="text"]', '<strong>Welcome to my digital portfolio!</strong><br><strong>A brief introduction:</strong><br><ul><li data-list="bullet">I am <strong>25 years old</strong>, based in <strong>Saint Petersburg</strong>.</li><li data-list="bullet"><strong>Qualified lawyer</strong> (Master\'s degree).</li><li data-list="bullet">Holding a professional retraining diploma in <strong>IT</strong>.</li><li data-list="bullet">Master\'s graduate.</li><li data-list="bullet">Passionate about <strong>high-tech</strong> and side projects.</li><li data-list="bullet"><strong>6 months</strong> of professional experience.</li></ul>'],
+                    ['#rec927788271 [field="btitle"]', '<span style="color: rgb(16, 64, 224);">My Curriculum Vitae Timeline</span>'],
+                    ['#rec927788271 [field="li_title__202610140001"]', '2026'],
+                    ['#rec927788271 [field="li_descr__202610140001"]', '<strong>Graduating from my Alma mater</strong> with a Master\'s degree in Law and exploring <strong>low-code/no-code platforms</strong>, mastered smoothly thanks to my background in <strong>Python</strong>.<br><br>Moving forward, I position myself on the job market as:<br>«<strong>A PM who speaks both code and &amp; law</strong>».'],
+                    ['#rec927788271 [field="li_title__1743677175600"]', '2025'],
+                    ['#rec927788271 [field="li_descr__1743677175600"]', 'Took a <strong>1-year sabbatical</strong> to intensively dive into <strong>advanced tech stacks</strong> and elevate my <strong>English proficiency</strong>.'],
+                    ['#rec927788271 [field="li_title__1743676564304"]', '<p style="text-align:center;">2024</p>'],
+                    ['#rec927788271 [field="li_descr__1743676564304"]', '<p style="text-align:center;"><strong>Started my professional career:</strong><br>• January–March: launched a <strong>fitness startup</strong>,<br>• March–July: worked at <strong>Matus&amp;Kvits</strong> web studio.</p>'],
+                    ['#rec927788271 [field="li_title__1743676271401"]', '2023'],
+                    ['#rec927788271 [field="li_descr__1743676271401"]', '<strong>Successfully passed State Exams</strong> in Civil Law and continued my legal studies in <strong>graduate school</strong>.'],
+                    ['#rec927788271 [field="li_title__6273115271612"]', '2022–2023'],
+                    ['#rec927788271 [field="li_descr__6273115271612"]', 'Completed Yandex Praktikum\'s <strong>professional retraining program</strong> in <strong>Project Management</strong><br>and delivered multiple practical side projects.'],
+                    ['#rec927788271 [field="li_title__6273115271611"]', '2019–2023'],
+                    ['#rec927788271 [field="li_descr__6273115271611"]', '<strong>Studied at the Faculty of Law</strong><br>at the St. Petersburg Institute (branch)<br>of the All-Russian State University of Justice (RLA of the Ministry of Justice of Russia).<br><br>Participated in the legal clinic, legal research, and debate club.'],
+                    ['#rec929373266 [field="subtitle"]', '<span style="color: rgb(16, 64, 224);">Thus, as of November 2026</span>'],
+                    ['#rec929373266 [field="title"]', '<strong style="color: rgb(16, 64, 224);">I have commercial experience</strong><br><strong style="color: rgb(16, 64, 224);">in the following areas:</strong>'],
+                    ['#rec929375286 [field="text"]', '<div style="font-size:24px;" data-customstyle="yes"><ol><li data-list="ordered" style="text-align:left;"><strong>Project analytics and planning,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Content management and copywriting,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Project and product management,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Estimating and budgeting,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Quality Assurance (QA testing),</strong></li><li data-list="ordered" style="text-align:left;"><strong>Technical documentation,</strong></li><li data-list="ordered" style="text-align:left;"><strong>SMM management,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Executive assistance,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Client account management,</strong></li><li data-list="ordered" style="text-align:left;"><strong>Marketing.</strong></li></ol></div>'],
+                    ['#rec929417261 [field="title"]', '<span style="color: rgb(16, 64, 224);">Tools &amp; Tech Stack:</span>'],
+                    ['#rec929411016 [field="li_title__5458223910800"]', '<div style="font-size:30px;" data-customstyle="yes"><span style="color: rgb(0, 0, 0);">Classic Software &amp; Platforms</span></div>'],
+                    ['#rec929411016 [field="li_descr__5458223910800"]', '<div style="font-size:20px;" data-customstyle="yes"><ol><li data-list="ordered" style="text-align:left;">n8n</li><li data-list="ordered" style="text-align:left;">Miro</li><li data-list="ordered" style="text-align:left;">Tilda</li><li data-list="ordered" style="text-align:left;">Figma</li><li data-list="ordered" style="text-align:left;">Canva</li><li data-list="ordered" style="text-align:left;">CapCut</li><li data-list="ordered" style="text-align:left;">Flaticon</li><li data-list="ordered" style="text-align:left;">UniProm</li><li data-list="ordered" style="text-align:left;">Jupyter Notebook</li><li data-list="ordered" style="text-align:left;">Bitrix24 &amp; CMS</li><li data-list="ordered" style="text-align:left;">Movavi Video Editor</li><li data-list="ordered" style="text-align:left;">Microsoft Clipchamp</li><li data-list="ordered" style="text-align:left;">Google Docs &amp; Sheets</li><li data-list="ordered" style="text-align:left;">Screaming Frog SEO Spider</li><li data-list="ordered" style="text-align:left;">Yandex Developer Console</li></ol></div>'],
+                    ['#rec929411016 [field="li_title__5458223910801"]', '<div style="font-size:30px;" data-customstyle="yes"><span style="color: rgb(0, 0, 0);">Text AI Models</span></div>'],
+                    ['#rec929411016 [field="li_descr__5458223910801"]', '<div style="font-size:20px;" data-customstyle="yes"><ol><li data-list="ordered">Codex</li><li data-list="ordered">ChatGPT</li><li data-list="ordered">Perplexity</li><li data-list="ordered">RAG systems</li><li data-list="ordered">AI Studio (Gemini)</li></ol></div>'],
+                    ['#rec929411016 [field="li_title__5458223910802"]', '<div style="font-size:30px;" data-customstyle="yes"><span style="color: rgb(0, 0, 0);">Visual AI Models</span></div>'],
+                    ['#rec927943231 [field="btitle"]', '<p style="text-align:center;"><span style="color: rgb(16, 64, 224);">Commercial Projects</span></p>'],
+                    ['#rec927943231 [field="bdescr"]', '<div style="font-size:20px;" data-customstyle="yes"><p style="text-align:center;"><em style="color: rgb(0, 0, 0);">showcasing the practical application of my </em><strong style="color: rgb(0, 0, 0);"><em>core skill set</em></strong><em style="color: rgb(0, 0, 0);">:</em></p></div>'],
+                    ['#rec928663441 [field="btitle"]', '<p style="text-align:center;"><span style="color: rgb(16, 64, 224);">Non-Commercial Projects</span></p>'],
+                    ['#rec928663441 [field="bdescr"]', '<div style="font-size:20px;" data-customstyle="yes"><p style="text-align:center;"><em style="color: rgb(0, 0, 0);">I would also be thrilled to share my non-commercial, educational, and side projects, into which I\'ve poured a genuine piece of myself!</em></p></div>'],
+                    ['#rec928361361 [field="title"]', '<span style="color: rgb(16, 64, 224);">Awards &amp; Certificates</span>'],
+                    ['#rec928361361 [field="descr"]', '<div style="font-size:20px;" data-customstyle="yes"><em>Recognitions earned through </em><strong><em>side projects</em></strong><em>, </em><strong><em>self-education</em></strong><em>, and various </em><strong><em>student initiatives</em></strong><em>:</em></div>'],
+                    ['#rec928420041 [field="title"]', '<span style="color: rgb(16, 64, 224);">Master\'s and Bachelor\'s Diplomas in Law</span>'],
+                    ['#rec929054431 [field="title"]', '<span style="color: rgb(16, 64, 224);">Professional Retraining Diploma<br>in Project Management</span>'],
+                    ['#rec929120541 [field="title"]', '<span style="color: rgb(16, 64, 224);">Wrapping up this self-presentation, I\'d like to share a few of my interests beyond law and information technology:</span>'],
+                    ['#rec929188731 [field="text"]', '<div style="font-size:24px;" data-customstyle="yes"><p style="text-align:center;"><strong>Beyond High-Tech:</strong> Besides IT and law, I am passionate about the stock market, marketing, economics, finance, psychology (symbolically, my personality type is Advocate / INFJ-A), numismatics and phaleristics, scale modeling, history, geography, and lifestyle/finance courses.</p><br><p style="text-align:center;">When it comes to tech learning, I prefer software developer tutorials and platforms like <strong>DeepLearning.AI</strong>. I also regularly verify my acquired knowledge through skill assessments on <strong>HeadHunter</strong>.</p><br><p style="text-align:center;">My routine also includes sports, legal science, chess, touch typing, maintaining an active <a href="https://www.linkedin.com/in/vawillove/" target="_blank" style="color:#1040E0; text-decoration:underline;">LinkedIn</a> profile, eco-friendly waste sorting, and of course, <strong>English</strong>. Each of these activities requires <strong>consistency, regularity, and discipline</strong>—traits confirmed (as of November 2026) by a 3,200+ day Duolingo streak :)</p><br><p style="text-align:center;">Thus, through continuous effort, I have <strong>mastered the theoretical knowledge and practical skills</strong>, along with the core competencies described above, necessary for <strong>high-impact professional execution</strong>.</p><br><p style="text-align:center;">Now, positioning myself as «<strong>A PM who speaks both code and &amp; law</strong>», I would be eager to strengthen a cross-functional team at a leading enterprise where expertise at the intersection of <strong>project coordination</strong> and <strong>legal processes</strong> is in high demand, backed by the daily use of <strong>advanced technologies</strong> and <strong>English</strong>.</p></div>'],
+                    ['#rec929194171 [field="title"]', '<span style="color: rgb(16, 64, 224);">THANK YOU FOR YOUR ATTENTION! ❤️</span>'],
+                    ['#rec929194171 [field="descr"]', '<em style="color: rgb(16, 64, 224);">Looking forward to connecting with you</em><br>☺️']
+                ];
+
+                var projects = {
+                    '3883306118290': ['TIMLAB', 'Online store and network service for household appliance repair. The website is multi-page and rich in vibrant visual solutions.'],
+                    '3883306118291': ['KANDELA', 'A complex, turnkey multi-page website for a special machinery distributor.'],
+                    '3883306118292': ['ARSKREPEZH', 'Building materials supplier website. Implemented banner updates and technical page revisions.'],
+                    '3883306118293': ['KSGidro', 'Website featuring a wide range of complex construction, installation, and cleaning services. Built from scratch.'],
+                    '8813306118294': ['MKWS on EVM', 'Authored a brand-image article for the web studio highlighting our work on the innovative EVM project.'],
+                    '8813306118295': ['BNV (Plintus-Bordur)', 'Online store for home acrylic baseboards. Performed content marketing initiatives.'],
+                    '8813306118296': ['Top-Stoleshki (Prestigious Countertops)', 'Online store for engineered stone products and installation services. Performed website restructuring analytics.'],
+                    '1743682932655': ['Two-ta', 'A renowned handmade leather goods brand. Performed online store updates and bug fixing.'],
+                    '1743683038826': ['WEG', 'Analyzed the website of the Kazakh branch of a Brazilian corporation and prepared update artifacts.'],
+                    '1743683095411': ['Yaratam', 'Provided a content plan for website populating to the staff of a designer furniture manufacturer.'],
+                    '1743683243453': ['Sevzapsoly Region', 'Updated cover images, product assortment, product cards, and technical pages.'],
+                    '1743683160226': ['Stairs Factory (Archived Version)', 'A turnkey stair manufacturer website built completely from scratch for private homes, offices, and buildings.'],
+                    '1743684018417': ['Fitness Personal Brand Startup (VK)', 'VKontakte community page, created and marketing-promoted on behalf of and under the guidance of a personal fitness trainer.'],
+                    '1743684304427': ['Fitness Personal Brand Startup (Telegram)', 'Telegram channel developed and populated on behalf of and under the guidance of a personal fitness trainer.'],
+                    '1399279432310': ['Towing Service Web Application', 'A two-month full-stack team side project resulting in a Tilda-based presentation landing page tailored for standalone server deployment.'],
+                    '1399279432311': ['Innopolis Telegram Channel Growth Strategies', 'A project completed within an Innopolis Hackathon on the Yandex Praktikum platform. My team took 3 out of 4 possible 1st places!'],
+                    '1399279432312': ['Apollinaria Pastry Chef', 'My experimental Tilda build for a hypothetically commercial business case.'],
+                    '1399279432314': ['Share Inheritance by Individuals', 'An informational newsletter created for the University Legal Clinic and highly praised by the professoriate.'],
+                    '1399279432313': ['License Agreements in Sub-Industry Regulation and Information Protection', 'A presentation for a university scientific conference based on a co-authored research paper.']
+                };
+
+                function setHtml(selector, html, language) {
+                    document.querySelectorAll(selector).forEach(function (element) {
+                        if (!ruContent.has(element)) ruContent.set(element, element.innerHTML);
+                        element.innerHTML = language === 'en' ? html : ruContent.get(element);
+                    });
+                }
+
+                function setText(selector, text, language) {
+                    document.querySelectorAll(selector).forEach(function (element) {
+                        if (!ruContent.has(element)) ruContent.set(element, element.textContent);
+                        element.textContent = language === 'en' ? text : ruContent.get(element);
+                    });
+                }
+
+                function applyLanguage(language) {
+                    activeLanguage = language;
+                    document.documentElement.lang = language;
+                    document.title = "Artyom Vavilov's CV site";
+
+                    translations.forEach(function (entry) { setHtml(entry[0], entry[1], language); });
+                    Object.keys(projects).forEach(function (id) {
+                        setHtml('[field="li_title__' + id + '"]', projects[id][0], language);
+                        setHtml('[field="li_descr__' + id + '"]', projects[id][1], language);
+                    });
+
+                    var navigation = {
+                        '#rec927788271': 'Timeline', '#rec929373266': 'Experience', '#rec927943231': 'Projects',
+                        '#rec928361361': 'Awards', '#rec928420041': 'Diplomas', '#rec929120541': 'About Me', '#rec929194171': 'Contacts'
+                    };
+                    Object.keys(navigation).forEach(function (anchor) {
+                        setText('.t-menu__link-item[href="' + anchor + '"]', navigation[anchor], language);
+                    });
+                    setText('#rec927688621 [data-buttonfieldset="button"]', 'MESSAGE ME ON TELEGRAM', language);
+                    setHtml('#rec930777001 .ag-results__title', 'My Key Results &amp; Impact<br><span>(in figures and facts):</span>', language);
+                    var stats = [
+                        ['≈750,000 RUB', 'Managed projects worth a total of <strong class="ag-results__highlight">≈750,000 RUB</strong> for 2 months.'],
+                        ['≈1,500,000 RUB', 'Secured <strong class="ag-results__highlight">7 new production orders</strong> worth <strong class="ag-results__highlight">≈1,500,000 RUB</strong> within 4 months of my work.'],
+                        ['10+ estimates', 'Contributed to <strong class="ag-results__highlight">10+ estimates</strong>, ⅓ of which were put into production, generating revenue.'],
+                        ['11 projects', 'Supervised <strong class="ag-results__highlight">design, content</strong>, and partial <strong class="ag-results__highlight">development</strong> teams across 11 projects.'],
+                        ['200+ tasks', 'Created <strong class="ag-results__highlight">75+</strong> and completed <strong class="ag-results__highlight">≈150 tasks</strong> in Bitrix24.'],
+                        ['12 articles', 'Initiated and authored <strong class="ag-results__highlight">12 foundational articles</strong> for the web studio\'s Knowledge Base.'],
+                        ['Up to 10 clients<br>per day', 'Managed daily client <strong class="ag-results__highlight">communications</strong> involving up to <strong class="ag-results__highlight">10 active stakeholders per day</strong>.'],
+                        ['50+<br>artifacts', 'Delivered <strong class="ag-results__highlight">50+ professional artifacts</strong> across all operational fronts, from content plans to bug tracking lists.'],
+                        ['25–30% faster', 'Streamlined team workflows, reducing task execution time by <strong class="ag-results__highlight">≈25–30%</strong>.']
+                    ];
+                    stats.forEach(function (stat, index) {
+                        var number = index + 1;
+                        setHtml('#rec930777001 .ag-results__item:nth-child(' + number + ') .ag-results__value', stat[0], language);
+                        setHtml('#rec930777001 .ag-results__item:nth-child(' + number + ') .ag-results__text', stat[1], language);
+                    });
+                    setText('.t994__btn-text', 'Visit Website 👆', language);
+                    document.querySelectorAll('#rec929452231 .t890__arrow').forEach(function (button) {
+                        button.setAttribute('aria-label', language === 'en' ? 'Back to the top of the page' : 'Вернуться к началу страницы');
+                    });
+                    document.querySelectorAll('[data-cv-language]').forEach(function (button) {
+                        var selected = button.dataset.cvLanguage === language;
+                        button.setAttribute('aria-pressed', String(selected));
+                    });
+                    document.querySelectorAll('.cv-language-switcher').forEach(function (switcher) {
+                        switcher.setAttribute('aria-label', language === 'en' ? 'Language selector' : 'Выбор языка');
+                    });
+                    try { localStorage.setItem('cv-language', language); } catch (error) { /* Storage is optional. */ }
+                }
+
+                document.addEventListener('click', function (event) {
+                    var button = event.target.closest('[data-cv-language]');
+                    if (!button) return;
+                    applyLanguage(button.dataset.cvLanguage);
+                });
+
+                window.addEventListener('load', function () {
+                    var savedLanguage = 'ru';
+                    try { savedLanguage = localStorage.getItem('cv-language') || 'ru'; } catch (error) { /* Use Russian. */ }
+                    applyLanguage(savedLanguage === 'en' ? 'en' : 'ru');
+                });
+            }());
+        </script>
+        <!-- Stat -->
         <script
             type="text/javascript">if (!window.mainTracker) { window.mainTracker = 'tilda'; }
                 window.tildastatcookie = 'no'; setTimeout(function () { (function (d, w, k, o, g) { var n = d.getElementsByTagName(o)[0], s = d.createElement(o), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.key = k; s.id = "tildastatscript"; s.src = g; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, '16dcbf39526f0412cea2c380eee45597', 'script', 'js/tilda-stat-1.0.min.js'); }, 2000);</script>
