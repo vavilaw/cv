@@ -571,6 +571,15 @@
                         <div class="t228__rightcontainer">
                             <div class="t228__right_buttons">
                                 <div class="t228__right_buttons_wrap">
+                                    <div class="t228__right_buttons_but cv-download-wrap">
+                                        <a class="cv-download" href="files/Artyom_Vavilov_CV_EN.pdf"
+                                            download="Artyom_Vavilov_CV.pdf" target="_blank" rel="noopener"
+                                            title="Скачать CV (PDF, English)" aria-label="Скачать CV (PDF, English)">
+                                            <span class="cv-download__icon" aria-hidden="true"></span>
+                                            <span class="cv-download__short">CV</span>
+                                            <span class="cv-download__full">Скачать CV (EN)</span>
+                                        </a>
+                                    </div>
                                     <div class="t228__right_buttons_but"><a href="https://t.me/vawillove"
                                             target="_blank" class="t-btn t-btn_md "
                                             style="color:#1040e0;border:2px solid #1040e0;border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;font-weight:600;text-transform:uppercase;"
@@ -4221,6 +4230,94 @@
                     display: inline;
                 }
             }
+        /* ===== Кнопка «Скачать CV» ===== */
+        #rec927688621 .cv-download {
+            align-items: center;
+            border: 1px solid rgba(16, 64, 224, .28);
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #1040e0;
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 700;
+            gap: 8px;
+            height: 40px;
+            justify-content: center;
+            line-height: 1;
+            padding: 0 14px;
+            text-decoration: none;
+            transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+            white-space: nowrap;
+        }
+
+        #rec927688621 .cv-download:hover,
+        #rec927688621 .cv-download:focus-visible {
+            background-color: rgba(16, 64, 224, .08);
+            border-color: #1040e0;
+            outline: none;
+            transform: translateY(-1px);
+        }
+
+        #rec927688621 .cv-download__icon {
+            -webkit-mask: url(images/download-CV.png) center / contain no-repeat;
+            background-color: currentColor;
+            display: block;
+            flex: 0 0 auto;
+            height: 20px;
+            mask: url(images/download-CV.png) center / contain no-repeat;
+            width: 20px;
+        }
+
+        #rec927688621 .cv-download__full {
+            display: none;
+        }
+
+        /* Мобильное меню: полная подпись */
+        @media screen and (max-width: 980px) {
+            #rec927688621 .cv-download {
+                min-width: 88px;
+            }
+
+            #rec927688621 .cv-download__short {
+                display: none;
+            }
+
+            #rec927688621 .cv-download__full {
+                display: inline;
+            }
+        }
+
+        /* Десктоп: одинаковые промежутки между меню, CV, Telegram и RU / EN */
+        @media screen and (min-width: 981px) {
+            #rec927688621 .t228__maincontainer.t228__c12collumns {
+                gap: 16px;
+                justify-content: space-between;
+            }
+
+            #rec927688621 .t228__centerside {
+                flex: 0 1 auto;
+            }
+
+            #rec927688621 .t228__rightside,
+            #rec927688621 .t228__rightcontainer,
+            #rec927688621 .t228__right_buttons,
+            #rec927688621 .t228__right_buttons_wrap {
+                display: contents;
+            }
+        }
+
+        /* На узких десктопах CV сжимается до иконки */
+        @media screen and (min-width: 981px) and (max-width: 1200px) {
+            #rec927688621 .cv-download {
+                padding: 0;
+                width: 40px;
+            }
+
+            #rec927688621 .cv-download__short {
+                display: none;
+            }
+        }
+
         </style>
         <script>
             (function () {
@@ -4228,6 +4325,12 @@
 
                 var ruContent = new WeakMap();
                 var activeLanguage = 'ru';
+                // Кнопка «Скачать CV»: файл и подпись для каждого языка.
+                // Когда будет готово резюме с HeadHunter, замените путь в строке ru и уберите «(EN)» в подписи.
+                var cvDownload = {
+                    ru: { file: 'files/Artyom_Vavilov_CV_EN.pdf', label: 'Скачать CV (EN)', hint: 'Скачать CV (PDF, English)' },
+                    en: { file: 'files/Artyom_Vavilov_CV_EN.pdf', label: 'Download CV', hint: 'Download CV (PDF)' }
+                };
                 var translations = [
                     ['#rec930293921 [field="title"]', 'Artyom Vavilov'],
                     ['#rec930293921 [field="descr"]', '<strong><em>Project Manager, Lawyer</em></strong><br><br>'],
@@ -4341,6 +4444,15 @@
                         setHtml('#rec930777001 .ag-results__item:nth-child(' + number + ') .ag-results__text', stat[1], language);
                     });
                     setText('.t994__btn-text', 'Visit Website 👆', language);
+                    var cvLink = document.querySelector('.cv-download');
+                    if (cvLink) {
+                        var cv = cvDownload[language];
+                        cvLink.setAttribute('href', cv.file);
+                        cvLink.setAttribute('title', cv.hint);
+                        cvLink.setAttribute('aria-label', cv.hint);
+                        var cvLabel = cvLink.querySelector('.cv-download__full');
+                        if (cvLabel) cvLabel.textContent = cv.label;
+                    }
                     document.querySelectorAll('#rec929452231 .t890__arrow').forEach(function (button) {
                         button.setAttribute('aria-label', language === 'en' ? 'Back to the top of the page' : 'Вернуться к началу страницы');
                     });
