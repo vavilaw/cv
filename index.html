@@ -4561,14 +4561,15 @@
                 }
 
                 #nav927688621 .cv-language-switcher {
+                    border: 1px solid rgba(16, 64, 224, .28);
+                    border-radius: 5px;
+                    display: inline-flex !important;
+                    flex-direction: row !important;
+                    min-width: 88px;
+                    width: auto !important;
                     justify-content: center;
                     margin: 16px 0 0 !important;
                 }
-            }
-
-            html.cv-nav-locked,
-            html.cv-nav-locked body {
-                overflow: hidden;
             }
 
             @media (prefers-reduced-motion: reduce) {
@@ -4610,7 +4611,8 @@
                     rootStyle.setProperty('--cv-nav-radius', Math.ceil(radius + 2) + 'px');
                 }
 
-                function setMenuOpen(next) {
+                function setMenuOpen(next, skipHistory) {
+                    var wasOpen = menuOpen;
                     if (!mobileQuery.matches) next = false;
                     menuOpen = next;
                     window.clearTimeout(closeTimer);
@@ -4628,7 +4630,13 @@
                     burger.classList.toggle('t-menuburger-opened', menuOpen);
                     burger.setAttribute('aria-expanded', menuOpen ? 'true' : 'false');
                     nav.setAttribute('aria-hidden', menuOpen ? 'false' : 'true');
-                    document.documentElement.classList.toggle('cv-nav-locked', menuOpen);
+                    if (!skipHistory) {
+                        if (menuOpen && !wasOpen) {
+                            try { history.pushState({ cvMenu: true }, ''); } catch (error) { }
+                        } else if (!menuOpen && wasOpen && history.state && history.state.cvMenu) {
+                            try { history.back(); } catch (error) { }
+                        }
+                    }
                 }
 
                 if (rec && nav && bar && burger) {
@@ -4643,8 +4651,25 @@
                     nav.addEventListener('click', function (event) {
                         if (!mobileQuery.matches || !menuOpen) return;
                         if (event.target.closest('.cv-language-switcher')) return;
-                        if (event.target.closest('a')) setMenuOpen(false);
+                        if (event.target.closest('a')) setMenuOpen(false, true);
                     }, true);
+                    var tapStart = null;
+                    document.addEventListener('pointerdown', function (event) {
+                        tapStart = (menuOpen && event.isPrimary) ? { x: event.clientX, y: event.clientY } : null;
+                    });
+                    document.addEventListener('pointerup', function (event) {
+                        if (!menuOpen || !tapStart) return;
+                        var moved = Math.hypot(event.clientX - tapStart.x, event.clientY - tapStart.y);
+                        tapStart = null;
+                        if (moved > 10) return;
+                        if (nav.contains(event.target) || bar.contains(event.target)) return;
+                        setMenuOpen(false, !!event.target.closest('a'));
+                    });
+                    document.addEventListener('pointercancel', function () { tapStart = null; });
+                    window.addEventListener('popstate', function (event) {
+                        if (menuOpen) { setMenuOpen(false, true); return; }
+                        if (event.state && event.state.cvMenu) history.back();
+                    });
                     document.addEventListener('keydown', function (event) {
                         if (event.key === 'Escape' && menuOpen) setMenuOpen(false);
                     });
