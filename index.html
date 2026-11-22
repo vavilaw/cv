@@ -573,12 +573,12 @@
                             <div class="t228__right_buttons">
                                 <div class="t228__right_buttons_wrap">
                                     <div class="t228__right_buttons_but cv-download-wrap">
-                                        <a class="cv-download" href="files/Artyom_Vavilov_CV_EN.pdf"
-                                            download="Artyom_Vavilov_CV.pdf" target="_blank" rel="noopener"
+                                        <a class="cv-download" href="files/Artyom_Vavilov_CV_RU.pdf"
+                                            download="Artyom_Vavilov_CV_RU.pdf" target="_blank" rel="noopener"
                                             title="Скачать CV (PDF, English)" aria-label="Скачать CV (PDF, English)">
                                             <span class="cv-download__icon" aria-hidden="true"></span>
                                             <span class="cv-download__short">CV</span>
-                                            <span class="cv-download__full">Скачать CV (EN)</span>
+                                            <span class="cv-download__full">Скачать CV</span>
                                         </a>
                                     </div>
                                     <div class="t228__right_buttons_but"><a href="https://t.me/vawillove"
@@ -4024,7 +4024,7 @@
                                                     fill="#1d98dc" />
                                             </svg></a></li>&nbsp;<li
                                         class="t-sociallinks__item t-sociallinks__item_email">
-                                        <a href="mailto:artem.vavilove@gmail.com" target="_blank" rel="nofollow"
+                                        <a href="mailto:artyom.vavilove@mail.ru" target="_blank" rel="nofollow"
                                             aria-label="Электронная почта" style="width: 48px; height: 48px;"><svg
                                                 class="t-sociallinks__svg" role="presentation" width=48px height=48px
                                                 viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -4324,8 +4324,8 @@
                 // Кнопка «Скачать CV»: файл и подпись для каждого языка.
                 // Когда будет готово резюме с HeadHunter, замените путь в строке ru и уберите «(EN)» в подписи.
                 var cvDownload = {
-                    ru: { file: 'files/Artyom_Vavilov_CV_EN.pdf', label: 'Скачать CV (EN)', hint: 'Скачать CV (PDF, English)' },
-                    en: { file: 'files/Artyom_Vavilov_CV_EN.pdf', label: 'Download CV', hint: 'Download CV (PDF)' }
+                    ru: { file: 'files/Artyom_Vavilov_CV_RU.pdf', name: 'Artyom_Vavilov_CV_RU.pdf', label: 'Скачать CV', hint: 'Скачать CV (PDF)' },
+                    en: { file: 'files/Artyom_Vavilov_CV_EN.pdf', name: 'Artyom_Vavilov_CV_EN.pdf', label: 'Download CV', hint: 'Download CV (PDF)' }
                 };
                 var translations = [
                     ['#rec930293921 [field="title"]', 'Artyom Vavilov'],
@@ -4444,6 +4444,7 @@
                     if (cvLink) {
                         var cv = cvDownload[language];
                         cvLink.setAttribute('href', cv.file);
+                        cvLink.setAttribute('download', cv.name);
                         cvLink.setAttribute('title', cv.hint);
                         cvLink.setAttribute('aria-label', cv.hint);
                         var cvLabel = cvLink.querySelector('.cv-download__full');
@@ -4557,7 +4558,7 @@
                     clip-path: circle(25px at var(--cv-nav-cx, calc(100% - 45px)) var(--cv-nav-cy, 45px));
                     content: "";
                     display: block;
-                    height: 60vh;
+                    height: var(--cv-nav-height, 60vh);
                     left: 0;
                     pointer-events: none;
                     position: fixed;
@@ -4577,10 +4578,10 @@
                     box-sizing: border-box;
                     box-shadow: none;
                     display: block !important;
-                    height: 60vh !important;
+                    height: var(--cv-nav-height, 60vh) !important;
                     left: 0 !important;
                     margin: 0 !important;
-                    max-height: 60vh;
+                    max-height: var(--cv-nav-height, 60vh);
                     max-width: none !important;
                     opacity: 1 !important;
                     overflow: auto;
